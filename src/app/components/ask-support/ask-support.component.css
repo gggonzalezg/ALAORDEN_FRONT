@@ -1,0 +1,72 @@
+ng-sidebar-container{
+
+    height: 100vh;
+}
+
+::ng-deep .ng-sidebar{
+    background-color: #f4f4f4;
+    width: 290px;
+    padding: 2em 3em;
+    box-shadow: 0 0 2.5em rgba(85,85,85,0.5);
+    
+}
+.hamburguer{
+  height: 60px;
+  margin: 20px;
+  z-index: 1;
+  position:absolute;
+  border: thin;
+  background: transparent;
+  width: 75px;
+  height: 70px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/images/Hamburguer.png");
+  
+}
+
+.header {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  margin-bottom: 100px;
+}
+.grid {
+  display: grid;
+  height: 100%;
+  overflow: hidden;
+  grid-template-columns: [x0] 1fr [x1] 3fr [x2] 1fr [x3];
+  grid-template-rows: [y0] 1fr [y1] 1fr [y2] 2fr [y3] 1fr [y4] 1fr [y4];
+}
+
+.field1{
+  grid-column: x1 / x2;
+  grid-row: y0 / y1;
+}
+.field2{
+  grid-column: x1 / x2;
+  grid-row: y1 / y2;
+}
+.field3{
+  grid-column: x1 / x2;
+  grid-row: y2 / y3;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttonsend{
+  grid-column: x1 / x2;
+  grid-row: y4 / y5;
+  
+  margin-top: 30px;
+  border: black;
+  border-radius: 2%;
+  width: 120px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+

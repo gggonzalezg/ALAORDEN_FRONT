@@ -1,0 +1,48 @@
+<body class="home">
+    <ng-sidebar-container>
+      <!--Sidebar-->
+
+        <ng-sidebar [opened]="opened">
+          <app-sidebar></app-sidebar>
+        </ng-sidebar>
+      
+
+        <div ng-sidebar-content>
+          <button (click)="toggleSidebar()" class="hamburguer" ></button>
+          <figure class="image is-480x480" >
+            <img [src]=imgHeader height="100px" class="header">
+          </figure>
+         
+          <a routerLink="/workerregister" class="linkworker">Conviértete en prestador de servicios</a>
+
+          <main>
+           <form style="width: 100%;" class="myform" #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
+              <input class="input is-rounded" type="text" name="service" placeholder="¿Qué necesitas que reparemos?" ngModel>
+          <br>
+          <br>
+          
+              <input class="input is-rounded" type="text" name="date" placeholder="¿Cuándo podemos visitarte?" ngModel>
+              <br>
+              <br>
+              <input class="input is-rounded" type="text" name="place" placeholder="¿A dónde vamos?" ngModel>
+              <br>
+              <br>
+           
+              <textarea class="textarea" type="text" name="desc" placeholder="Por favor describe los detalles del servicio que necesitas" ngModel></textarea>
+              <br>
+         
+              <button class="search" type="submit">Buscar</button>
+            </form>
+           
+            <div class="card1"><img [src]=imgPeople class="card1"></div>
+            
+            <div class="card2"><img [src]=imgWomen class="card2"></div>
+          </main>
+         
+
+
+        </div>
+      </ng-sidebar-container>
+      
+      
+  </body>

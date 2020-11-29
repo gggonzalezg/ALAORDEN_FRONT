@@ -1,0 +1,50 @@
+
+<ng-sidebar-container>
+    <!--Sidebar-->
+      <ng-sidebar [opened]="opened">
+        <app-sidebar></app-sidebar>
+      </ng-sidebar>
+    
+      <div ng-sidebar-content>
+        <button (click)="toggleSidebar()" class="hamburguer" ></button>
+        <figure class="image is-480x480" >
+          <img [src]=imgHeader height="100px" class="header">
+        </figure>
+  <div style="margin-left: 50px; margin-right: 50px;">
+  <div class="table">
+      <table class="table is-fullwidth">
+        
+        <tbody>
+    <tr *ngFor="let service of services; let i=index">
+        <div class="columns">
+            <div class="column">
+            <p class="worker_name">{{service.name}}</p>
+            <p>{{service.service}}</p>
+            <p>Calificación:{{service.score}}</p>
+        </div>
+        <div class="column">
+            <p class="price"><a (click)="selectservice(i)">{{service.price}}</a></p>
+        </div>
+        </div>
+    </tr>
+        </tbody>
+      </table>
+      <mat-form-field appearance="fill">
+        <mat-label>Método de pago</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let type of types" [value]="type.value">
+            {{type.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+
+
+  </div>
+</div>
+
+   </div>
+   
+  </ng-sidebar-container>
+        

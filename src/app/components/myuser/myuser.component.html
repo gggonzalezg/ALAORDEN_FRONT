@@ -1,0 +1,41 @@
+<ng-sidebar-container>
+  <!--Sidebar-->
+    <ng-sidebar [opened]="opened">
+      <app-sidebar></app-sidebar>
+    </ng-sidebar>
+  
+    <div ng-sidebar-content>
+      <button (click)="toggleSidebar()" class="hamburguer" ></button>
+      <figure class="image is-480x480" >
+        <img [src]=imgHeader height="100px" class="header">
+      </figure>
+
+<div class="grid">
+   
+    
+    <div class="center" *ngFor="let dato of datos">
+       
+      
+      <input class="input is-rounded" type="text" name="name" placeholder="{{dato.name}}" ngModel>
+      
+      <input class="input is-rounded" type="text" name="email" placeholder="{{dato.email}}" ngModel>
+     
+      <input class="input is-rounded" type="password" name="password" placeholder="{{dato.password}}" ngModel>
+   
+      <input class="input is-rounded" type="text" name="country" placeholder="{{dato.country}}"ngModel>
+     
+      <input class="input is-rounded" type="text" name="city" placeholder="{{dato.city}}" ngModel>
+      
+      <input class="input is-rounded" type="text" name="phone" placeholder="{{dato.phone}}" ngModel>
+      
+     
+        <!--<button class="pay">Agregar forma de pago (opcional)</button>
+      
+        <button class="register" type="submit">Actualizar</button>-->
+     
+    </div>
+    </div>
+ </div>
+ 
+</ng-sidebar-container>
+      

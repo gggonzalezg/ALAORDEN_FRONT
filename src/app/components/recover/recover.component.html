@@ -1,0 +1,25 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+    <main>
+    <div>
+  
+        <img [src]=imgIcon height="200px" class="responsive">
+  
+    </div>
+    <div class="middlediv">
+      <p>
+          {{message}}
+      </p>
+
+      <form #recover1Form="ngForm" (ngSubmit)="email(recover1Form)">
+      <input class="input is-rounded" type="text" name="input" ngModel>
+
+      <button type="submit">Continuar</button>
+    </form>
+    </div>
+   
+      <div>
+        <img [src]=imgFooter class="buttom">
+    </div>
+</main>
+</body>

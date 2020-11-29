@@ -1,0 +1,55 @@
+.grid {
+    display: grid;
+    height: 100%;
+    overflow: hidden;
+    grid-template-columns: [x0] 1fr [x1] 1fr [x2] 2fr [x3] 1fr [x4] 1fr [x5];
+    grid-template-rows: [y0] 1fr [y1];
+  }
+
+.side{
+    grid-column: x0 / x1;
+    height: 100%;
+}
+.imageside{
+    height: 100%;
+    position: fixed;
+}
+.center{
+    color: red;
+    grid-column: x2 / x3;
+    grid-row: y0 / y1;
+}
+img.icon{
+    height: 240px;
+    width: 240px;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  button.register{
+      margin-top: 60px;
+    background-color: white;
+    border: black;
+    border-radius: 2%;
+    width: 120px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  button.pay{
+    margin-top: 60px;
+    background-color: green;
+    border: black;
+    border-radius: 2%;
+    width: 600px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    ;
+  }
+  .field{
+      margin-top: 0px;
+  }

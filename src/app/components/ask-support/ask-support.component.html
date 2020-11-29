@@ -1,0 +1,39 @@
+
+<ng-sidebar-container>
+    <!--Sidebar-->
+      <ng-sidebar [opened]="opened">
+        <app-sidebar></app-sidebar>
+      </ng-sidebar>
+    
+      <div ng-sidebar-content>
+        <button (click)="toggleSidebar()" class="hamburguer" ></button>
+        <figure class="image is-480x480" >
+          <img [src]=imgHeader height="100px" class="header">
+        </figure>
+  <div style="margin-left: 50px; margin-right: 50px;">
+    <div class="grid">
+        <div class="field1">
+            <input class="input is-rounded" type="text" placeholder="001">
+            
+        </div>
+
+        <div class="field2">
+            <input class="input is-rounded" type="text" placeholder="Servicio">
+    </div>
+
+    <div class="field3">
+    <textarea style="height: 200px; width: 300px;" placeholder="Problemas con el servicio"></textarea>
+    </div>
+
+
+            <button class="buttonsend">Enviar</button>
+           
+    </div>
+    </div>
+
+</div>
+
+   
+   
+  </ng-sidebar-container>
+        

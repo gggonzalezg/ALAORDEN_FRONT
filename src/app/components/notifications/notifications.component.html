@@ -1,0 +1,33 @@
+
+<ng-sidebar-container>
+    <!--Sidebar-->
+      <ng-sidebar [opened]="opened">
+        <app-sidebar></app-sidebar>
+      </ng-sidebar>
+    
+      <div ng-sidebar-content>
+        <button (click)="toggleSidebar()" class="hamburguer" ></button>
+        <figure class="image is-480x480" >
+          <img [src]=imgHeader height="100px" class="header">
+        </figure>
+  <div style="margin-left: 50px; margin-right: 50px;">
+  <div class="table-container">
+      <table class="table is-fullwidth">
+        <thead>
+          
+        </thead>
+        <tbody>
+          <tr *ngFor="let contract of contracts; let i=index">
+            <th><button (click)="selectedservice(i)">{{contracts.user}}{{contracts.company}}{{contracts.date}}</button></th>
+            
+          </tr>
+           
+        </tbody>
+      </table> 
+  </div>
+</div> 
+
+   </div>
+   
+  </ng-sidebar-container>
+        

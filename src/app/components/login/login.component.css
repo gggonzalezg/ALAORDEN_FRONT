@@ -1,0 +1,94 @@
+.grid {
+  display: grid;
+  height: 100%;
+  overflow: hidden;
+  grid-template-columns: [x0] 1fr [x1] 1fr [x2] 1fr [x3] 0.5fr [x4] 1fr [x5];
+  grid-template-rows: [y0] 1fr [y1] 1fr [y2] 1fr [y3];
+}
+.header {
+  grid-column: x4 /x5;
+  grid-row: y0 / y1;
+}
+
+.sidebar {
+ 
+  grid-column: x4 / x5;
+  grid-row: y1 / y3;
+  
+}
+.separator{
+  
+  grid-column: x3 / x4;
+  grid-row: y0 / y3;
+}
+
+.content {
+  
+  grid-column: x0 / x3;
+  grid-row: y1 / y3;
+}
+
+.footer {
+  background: transparent;
+  grid-column: x0 / x1;
+  grid-row: y2;
+}
+.icon{
+  height: 240px;
+  width: 240px;
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;;
+}
+.cover{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 210px;
+}
+
+.separatorimage{
+  height: 100%;
+  right: 0;
+  position: inherit;
+  margin-right: 0%;
+  margin-left: 40%;
+}
+.CornerInfo{
+  height: 300px;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+button.login{
+  background-color: white;
+  border: black;
+  border-radius: 2%;
+  width: 140px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.register{
+  background-color: white;
+  border: black;
+  border-radius: 2%;
+  width: 110px;
+  height: 20px;
+  font-size: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  
+}
+a{
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  text-align: center;
+  color: black;
+}

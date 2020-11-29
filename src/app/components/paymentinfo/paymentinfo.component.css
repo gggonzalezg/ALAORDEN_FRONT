@@ -1,0 +1,66 @@
+.grid {
+    display: grid;
+    height: 100%;
+    overflow: hidden;
+    grid-template-columns: [x0] 1fr [x1] 1fr [x2] 0.5fr [x3] 1fr [x4] 1fr [x5];
+    grid-template-rows: [y0] 0.1fr [y1] 0.1fr [y2] 0.1fr [y3] 0.1fr [y4] 0.1fr [y5] 0.5fr [y6];
+  }
+
+  .options{
+    grid-column: x2 / x3;
+    grid-row: y1 / y2;
+  }
+
+  .fieldname{
+    grid-column: x1 / x2;
+    grid-row: y2 / y3;
+  }
+
+  .fieldnumber{
+    grid-column: x3 / x4;
+    grid-row: y2 / y3;
+  }
+  .fieldexpiration{
+    grid-column: x1 / x2;
+    grid-row: y3 / y4;
+  }
+  .fieldsegcode{
+    grid-column: x3 / x4;
+    grid-row: y3 / y4;
+  }
+  .fieldcode{
+    grid-column: x1 / x2;
+    grid-row: y4 / y5;
+}
+  .fieldcountry{
+    grid-column: x3 / x4;
+    grid-row:  y4 / y5;
+}
+
+.ready{
+    grid-column: x1 / x2;
+    grid-row:  y5 / y6;
+}
+.cancel{
+    grid-column: x3 / x4;
+    grid-row:  y5 / y6;
+}
+button{
+  margin-top: 60px;
+  background-color: white;
+  border: black;
+  border-radius: 2%;
+  width: 120px;
+  height: 30px;
+  display: block;
+}
+.ready{
+    right: 0px;
+    margin-right: 0px;
+    margin-left: 80%;
+}
+.cancel{
+    right: 0px;
+    margin-right: 90%;
+    margin-left: 0px;
+}

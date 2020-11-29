@@ -1,0 +1,26 @@
+
+<div class="columns">
+    <div class="column">
+      <a routerLink='/home'><img style="margin-top: 0%;margin-left: auto;margin-right: auto; width: 250px;" [src]="imgIcon" ></a>
+  <p><a routerLink="/myuser">Mi usuario</a></p>
+  <!--<button (click)="toggleSidebar()">Close</button>-->
+  <td></td>
+  <ul style="margin-top: 80%;">
+    <li><a routerLink="/history" (click)="toggleSidebar()">Historial</a></li>
+    <!--<li><a routerLink="/categories" (click)="toggleSidebar()">Categorias</a></li>-->
+    <li><a routerLink="/notifications" (click)="toggleSidebar()">Notificaciones</a></li>
+  </ul>
+
+  <ul style="margin-top: 100%;">
+    <li>Bogotá</li>
+    <li  style="margin-top: 40%;"><a href='/info'>Acerca de nosotros</a></li>
+  
+  </ul>
+  </div>
+  
+    <div class="column">
+      <a (click)="firstComponentFunction()"><img style="margin-top: 30%;margin-left: 70%; width: 40px;" [src]=imgBack></a>
+    </div>
+  </div>
+<img style="margin-top: 85px; width: 20px;" [src]=imgexit (click)="logout()"><a href='#' (click)="logout()">Cerrar sesión</a>
+

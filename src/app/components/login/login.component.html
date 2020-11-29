@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+<div class="grid">
+<div class="content">
+  
+    <img [src]=imgCover class="cover">
+
+    <img [src]=imgCover2 class="cover">
+</div>
+
+<div class="header">
+    <img [src]=imgIcon class="icon">
+</div>
+
+<div class="separator">
+  <img [src]=imgSeparator class="separatorimage">
+</div>
+
+<div class="sidebar">
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+  <input class="input is-rounded" name="email" type="text" placeholder="Correo electrónico" style="margin-bottom: 20px;" ngModel>
+  <input class="input is-rounded" name="password" type="password" placeholder="Contraseña" style="margin-bottom: 100px;" ngModel>
+  <button class="login" type="submit">Iniciar sesión</button>
+</form>
+<div>
+  
+</div>
+
+  <a routerLink='register' class="register">Registrarse</a>
+
+</div>
+
+<div class="footer">
+<a routerLink='info'><img [src]=imgInfo class="CornerInfo"></a>
+</div>
+</div>
+</body>
+</html>
+

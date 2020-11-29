@@ -1,0 +1,54 @@
+
+  .responsive {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    max-width: 200px;
+    align-self: center;
+    display: block;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  p{
+      text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font: size 14;
+    margin-bottom: 50px;
+  }
+ 
+  
+  main {
+    height: 100%;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, 100%);
+    grid-template-rows: 33% 33% 33%;
+    overflow: hidden;
+  }
+  button{
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    text-align: center;
+    display: block;
+    margin-top: 50px;
+    background-color: white;
+    box-shadow: transparent;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    height: 30px;
+    width: 150px;
+  }
+  .middlediv{
+    width: 500px; align-self: center; margin-left: auto;
+    margin-right: auto
+      
+  }
+  .buttom{
+    vertical-align: bottom;  position: absolute;;
+    width: 100%;bottom: 0px;
+  }
