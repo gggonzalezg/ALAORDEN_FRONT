@@ -9,7 +9,7 @@ import { MainServiceService } from 'src/app/Services/main-service.service';
 })
 export class DecisionServiceComponent implements OnInit {
   opened = false;
-
+  serviceData : any = {};
   imgHeader: string = "assets/images/Header.png";
   imgHamburguer: string = "assets/images/Hamburguer.png";
 
@@ -26,9 +26,10 @@ export class DecisionServiceComponent implements OnInit {
     }
     ngOnInit() { 
       
-      localStorage.getItem('notiuser');
-      localStorage.getItem('noticompany');
-      localStorage.getItem('notidate');
+      this.serviceData.service = localStorage.getItem('service');
+      this.serviceData.date = localStorage.getItem('date');
+      this.serviceData.city = localStorage.getItem('city');
+      this.serviceData.contract = localStorage.getItem('contract');
       
       
       if (this.eventEmitterService.subsVar==undefined) {//Para poder ejecutar el método togglesidebar() de HomeComponent 

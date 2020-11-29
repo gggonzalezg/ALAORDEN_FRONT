@@ -73,9 +73,15 @@ export class MainServiceService {
   /*getcategories(){
     return this.http.get<category[]>(`${this.Url}/ `); 
   }*/
-   getnotifications(email: any){
-    return this.http.get<contract[]>(`${this.Url}/ `, {params: new HttpParams().set('email',email)}); 
+   getnotifications(userId: any){
+    return this.http.get<contract[]>(`${this.Url}/${userId}/notifications`); 
   }
+
+  getContractDataToDecide(contractId : string){
+    return this.http.get<[]>(`${this.Url}/service/${contractId}/data`);
+  
+  }
+
   getpaymentypes(){
     return this.http.get<[]>(`${this.Url}/ `); 
   }

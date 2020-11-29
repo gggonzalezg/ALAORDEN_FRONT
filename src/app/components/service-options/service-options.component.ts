@@ -59,6 +59,7 @@ export class ServiceOptionsComponent implements OnInit {
         companyId: i.companyId,
         userId: sessionStorage.getItem('userId'),
         paymentType: this.selectedPaymentType['value'] || 1,
+        description : localStorage.getItem('searchdesc'),
         date: localStorage.getItem('searchtime'),
         companyOwner : i.owner,
         state: 'I',
