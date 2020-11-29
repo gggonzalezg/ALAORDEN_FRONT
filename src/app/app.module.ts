@@ -34,6 +34,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CompanyRegisterComponent } from './components/company-register/company-register.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -94,9 +97,11 @@ const routes: Routes = [
         SidebarModule.forRoot(),
         HttpClientModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatFormFieldModule,
+        MatInputModule
     ],
-  providers: [ LoginGuard, EventEmitterService, MainServiceService,MatDatepickerModule],
+  providers: [ LoginGuard, EventEmitterService, MainServiceService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

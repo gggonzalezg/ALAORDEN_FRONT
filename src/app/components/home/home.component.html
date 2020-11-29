@@ -1,54 +1,64 @@
 <body class="home">
-    <ng-sidebar-container>
-      <!--Sidebar-->
+<ng-sidebar-container>
+    <!--Sidebar-->
 
-        <ng-sidebar [opened]="opened">
-          <app-sidebar></app-sidebar>
-        </ng-sidebar>
-      
-
-        <div ng-sidebar-content>
-          <button (click)="toggleSidebar()" class="hamburguer" ></button>
-          <figure class="image is-480x480" >
-            <img [src]=imgHeader height="100px" class="header">
-          </figure>
-         
-          <a routerLink="/workerregister" class="linkworker" *ngIf="createCompany">Conviértete en prestador de servicios</a>
-
-          <main>
-           <form style="width: 100%;" class="myform" #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
-              <input class="input is-rounded" type="text" name="service" placeholder="¿Qué necesitas que reparemos?" ngModel>
-          <br>
-          <br>
-          
-              <input class="input is-rounded" type="text" name="date" placeholder="¿Cuándo podemos visitarte?" ngModel>
-               <mat-datepicker name="date" md-placeholder="Enter date" ngModel ngDefaultControl></mat-datepicker>
-               <br>
-              <br>
-               <label for="ciudadSelection" >Seleccione la ciudad.</label>
-               <select id="ciudadSelection" name="ciudadSelection" ngModel="{{selectedCiudad}}">
-                   <option *ngFor="let ciudad of ciudades">
-                       {{ciudad.name}}
-                   </option>
-               </select>
-              <br>
-              <br>
-           
-              <textarea class="textarea" type="text" name="desc" placeholder="Por favor describe los detalles del servicio que necesitas" ngModel></textarea>
-              <br>
-         
-              <button class="search" type="submit">Buscar</button>
-            </form>
-           
-            <div class="card1"><img [src]=imgPeople class="card1"></div>
-            
-            <div class="card2"><img [src]=imgWomen class="card2"></div>
-          </main>
-         
+    <ng-sidebar [opened]="opened">
+        <app-sidebar></app-sidebar>
+    </ng-sidebar>
 
 
-        </div>
-      </ng-sidebar-container>
-      
-      
-  </body>
+    <div ng-sidebar-content>
+            <button (click)="toggleSidebar()" class="hamburguer"></button>
+            <figure class="image is-480x480">
+                <img [src]=imgHeader height="100px" class="header">
+            </figure>
+
+            <a routerLink="/workerregister" class="linkworker" *ngIf="createCompany">Conviértete en prestador de
+                servicios</a>
+
+            <main>
+                <form style="width: 100%;" class="myform" #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
+                    <label class="input is-rounded" for="serviceSelection">¿Qué servicio necesitas? </label>
+                    <select id="serviceSelection" class="input is-rounded" name="serviceSelection"
+                            ngModel="{{selectedService}}" >
+                        <option *ngFor="let servicio of servicios">
+                            {{servicio
+                            .name}}
+                        </option>
+                    </select>
+                    <br>
+                    <br>
+
+                    <label for="selectDate">¿Cuándo podemos visitarte?</label>
+                    <mat-form-field id="selectDate">
+                        <input matInput type="text" [matDatepicker]="picker" placeholder="Escoge una fecha">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <label for="ciudadSelection">Seleccione la ciudad.</label>
+                    <select id="ciudadSelection" name="ciudadSelection" ngModel="{{selectedCiudad}}">
+                        <option *ngFor="let ciudad of ciudades">
+                            {{ciudad.name}}
+                        </option>
+                    </select>
+                    <br>
+                    <br>
+
+                    <textarea class="textarea" type="text" name="desc"
+                              placeholder="Por favor describe los detalles del servicio que necesitas" ngModel></textarea>
+                    <br>
+
+                    <button class="search" type="submit">Buscar</button>
+                </form>
+
+                <div class="card1"><img [src]=imgPeople class="card1"></div>
+
+                <div class="card2"><img [src]=imgWomen class="card2"></div>
+            </main>
+    </div>
+</ng-sidebar-container>
+
+
+</body>
