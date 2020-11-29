@@ -42,9 +42,6 @@ export class CompanyRegisterComponent implements OnInit {
       companyobj.country = Number(form.value.ccountry);
       companyobj.city = Number(form.value.ccity);
 
-      console.log(companyobj); //Se obtienen los datos de la compañía
-      console.log(this.datarray); //Se obtienen los datos de los servicios
-
       if (this.datarray.length > 0) {
         let user = sessionStorage.getItem('userId');
         companyobj.owner = user;

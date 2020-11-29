@@ -26,8 +26,9 @@
         <div class="services">
           <nav class="level" *ngFor="let obj of datarray">
             <input class="input is-rounded" type="text" placeholder="Servicio" name="name" [(ngModel)]="obj.name">
-            <input class="input is-rounded" type="text" placeholder="Categoria" name="category"
-              [(ngModel)]="obj.category">
+            <input class="input is-rounded" type="textarea" placeholder="Descripción" name="description" [(ngModel)]="obj.description">
+            <input class="input is-rounded" type="text" placeholder="Categoria" name="serviceType"
+              [(ngModel)]="obj.serviceType">
             <input class="input is-rounded" type="text" placeholder="Precio" name="price" [(ngModel)]="obj.price">
 
           </nav>

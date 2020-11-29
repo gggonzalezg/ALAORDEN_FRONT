@@ -1,6 +1,7 @@
 export class service{
     name:any;
-    category: any;
+    serviceType: any;
+    description : string;
     price:any;
     id:any;
     companyId: any;
