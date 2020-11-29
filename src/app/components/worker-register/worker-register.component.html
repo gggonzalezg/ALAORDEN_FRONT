@@ -28,9 +28,9 @@
         </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let i=index ; let company of companies | filter:searchText">
+            <tr *ngFor="let i=index ; let company of companies | filter:searchText" (click)="JoinCompany(i)">
                 <td>{{company.id}}</td>
-                <td><button class="selectedcompany" (click)="JoinCompany(i)">{{company.name}}</button></td>
+                <td><button class="selectedcompany" >{{company.name}}</button></td>
                 <td>{{company.location}}</td>
                 <td>{{company.city}}</td>
               </tr>

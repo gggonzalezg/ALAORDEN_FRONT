@@ -51,14 +51,8 @@ export class WorkerRegisterComponent implements OnInit {
       //Recuperar el email del usuario en sesión
       this.email = localStorage.getItem('email');
       
-      
-  
-    this.http.getcompanies() // Enviar los parámetros de búsqueda al servicio
-    .subscribe(data =>{
-      this.companies = data;
-    });
-    
-      
+      this.getCompanies();
+
       if (this.eventEmitterService.subsVar==undefined) {//Para poder ejecutar el método togglesidebar() de HomeComponent 
       this.eventEmitterService.subsVar = this.eventEmitterService.    
       invokeFirstComponentFunction.subscribe((name:string) => {    
@@ -67,5 +61,11 @@ export class WorkerRegisterComponent implements OnInit {
     }    
   } 
     
+  getCompanies(){
+    this.http.getcompanies() // Enviar los parámetros de búsqueda al servicio
+    .subscribe(data =>{
+      this.companies = data;
+    });
+  }
    
   } 

@@ -22,66 +22,66 @@ export class MainServiceService {
 
   constructor(private http:HttpClient) { }
 
-  Url='http://localhost:8080/AlaOrden/backend';
+  Url='http://localhost:8080';
 
   getUser(userobj:user){
     //Login user
-    return this.http.post<user>(this.Url,userobj, {observe: 'response'});
+    return this.http.post<user>(`${this.Url}/auth/login`,userobj, {observe: 'response'});
   }
 
   setUser(registerobj: register){
     //Register user
-    return this.http.post<user>(this.Url,registerobj); 
+    return this.http.post<user>(`${this.Url}/user/register`,registerobj); 
   }
 
   getserviceoptions(searchobj: search){
     //Obtener opciones de servicios a partir de la búsqueda principal
-    return this.http.put<service_options[]>(this.Url, searchobj);
+    return this.http.put<service_options[]>(`${this.Url}/`, searchobj);
   }
   getcompanies(){
     //Obtener el listado de compañías para que el prestador de servicios se identifíque con una
-    return this.http.get<company[]>(this.Url); 
+    return this.http.get<company[]>(`${this.Url}/company/list`); 
   }
 
   joincompany(collaborator: company_collaborator){
     //Unir a prestador de servicios a compañía
-    return this.http.post<company_collaborator>(this.Url, collaborator); 
+    return this.http.post<company_collaborator>(`${this.Url}/`, collaborator); 
   }
 
   createcompany(newcompany: company){
     //Crear compañía
-    return this.http.post<company>(this.Url, newcompany); 
+    return this.http.post<company>(`${this.Url}/ `, newcompany); 
   }
 
   addservices(newservices: service[]){
     //Agregar servicios a la compañía
-    return this.http.post<service>(this.Url, newservices); 
+    return this.http.post<service>(`${this.Url}/ `, newservices); 
   }
 
   getmyUser(email){
     //Obtener información del usuario en sesión actualmente
-    return this.http.get<register>(this.Url,{params: new HttpParams().set('email',email)});
+    return this.http.get<register>(`${this.Url}/ `,{params: new HttpParams().set('email',email)});
   }
   gethistory(email: any){
     //Obtener el historial de servicios del usuario en sesión
-    return this.http.post<history[]>(this.Url, email); 
+    return this.http.post<history[]>(`${this.Url}/ `, email); 
   }
   /*getservicehistorycard(id: any){
     //Obtener el historial de servicios del usuario en sesión
-    return this.http.get<history>(this.Url, id); 
+    return this.http.get<history>(`${this.Url}/`, id); 
   }*/
   /*getcategories(){
-    return this.http.get<category[]>(this.Url); 
+    return this.http.get<category[]>(`${this.Url}/ `); 
   }*/
    getnotifications(email: any){
-    return this.http.get<contract[]>(this.Url, {params: new HttpParams().set('email',email)}); 
+    return this.http.get<contract[]>(`${this.Url}/ `, {params: new HttpParams().set('email',email)}); 
   }
   getpaymentypes(){
-    return this.http.get<[]>(this.Url); 
+    return this.http.get<[]>(`${this.Url}/ `); 
   }
   setcontract(contract : contract_service){
     //Agendar servicio 
-    return this.http.post<contract_service>(this.Url, contract); 
+    return this.http.post<contract_service>(`${this.Url}/`, contract); 
   }
 
 }
