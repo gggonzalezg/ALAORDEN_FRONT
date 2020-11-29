@@ -1,44 +1,41 @@
-
 <ng-sidebar-container>
-    <!--Sidebar-->
-      <ng-sidebar [opened]="opened">
-        <app-sidebar></app-sidebar>
-      </ng-sidebar>
-    
-      <div ng-sidebar-content>
-        <button (click)="toggleSidebar()" class="hamburguer" ></button>
-        <figure class="image is-480x480" >
-          <img [src]=imgHeader height="100px" class="header">
-        </figure>
-  <div style="margin-left: 50px; margin-right: 50px;">
-    <div class="grid">
+  <!--Sidebar-->
+  <ng-sidebar [opened]="opened">
+    <app-sidebar></app-sidebar>
+  </ng-sidebar>
+
+  <div ng-sidebar-content>
+    <button (click)="toggleSidebar()" class="hamburguer"></button>
+    <figure class="image is-480x480">
+      <img [src]=imgHeader height="100px" class="header">
+    </figure>
+    <div style="margin-left: 50px; margin-right: 50px;">
+      <div class="grid">
         <div class="field1">
-            <input class="input is-rounded" type="text" value="{{serviceData.service}}" disabled>
+          <input class="input is-rounded" type="text" value="{{serviceData.service}}" disabled>
         </div>
 
         <div class="field2">
-            <input class="input is-rounded" type="text" value="{{serviceData.date | date: 'dd/MM/yyyy'}}" disabled>
+          <input class="input is-rounded" type="text" value="{{serviceData.date | date: 'dd/MM/yyyy'}}" disabled>
         </div>
 
         <div class="field3">
-            <input class="input is-rounded" type="text" value="{{serviceData.city}}" disabled>
+          <input class="input is-rounded" type="text" value="{{serviceData.city}}" disabled>
         </div>
 
         <div class="field4">
-            <textarea class="desc"></textarea>
+          <textarea class="desc" value="{{serviceData.description}}"></textarea>
         </div>
         <!--<p class="price">1000</p>-->
-       
-            <button class="buttonaccept">Enviar</button>
-            <button class="buttondecline">Rechazar</button>
-           
+
+        <button class="buttonaccept" (click)="defineAction('Accept')">Enviar</button>
+        <button class="buttondecline" (click)="defineAction('Refuse')">Rechazar</button>
+
+      </div>
     </div>
-    </div>
 
-</div>
+  </div>
 
-   
-   
-  </ng-sidebar-container>
-        
 
+
+</ng-sidebar-container>

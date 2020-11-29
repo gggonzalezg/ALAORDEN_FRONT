@@ -79,7 +79,10 @@ export class MainServiceService {
 
   getContractDataToDecide(contractId : string){
     return this.http.get<[]>(`${this.Url}/service/${contractId}/data`);
-  
+  }
+
+  setCompanyDecision(data){
+    return this.http.post<any>(`${this.Url}/service/decision`, data);
   }
 
   getpaymentypes(){
