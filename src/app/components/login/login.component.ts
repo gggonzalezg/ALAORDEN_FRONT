@@ -25,30 +25,31 @@ export class LoginComponent implements OnInit {
    
   }
 
-login(form: NgForm){
-  //console.log(form.value);
-
-/*
+  async login(form: NgForm){
   if(form.value.email != '' && form.value.password != ''){
     let userobj = new user();//Armar el objeto usuario para enviarlo como parámetro al servicio
     userobj.email = form.value.email;
     userobj.password = form.value.password;
 
-    if(this.mainservice.getUser(userobj)){
-    localStorage.setItem('email', form.value.email);
-    localStorage.setItem('password', form.value.password);
-    this.router.navigate(['/home']);
-    }
-    else{
-      localStorage.setItem('email', '');
-      localStorage.setItem('password', '');
-      
-    }
+    this.mainservice.getUser(userobj).subscribe( data => {
+
+      if(data.body['message'] === true){
+        sessionStorage.setItem('email', form.value.email);
+        sessionStorage.setItem('password', form.value.password);
+        sessionStorage.setItem('role', data.body['role']);
+        this.router.navigate(['/home']);
+        }
+        else{
+          sessionStorage.setItem('email', '');
+          sessionStorage.setItem('password', '');
+          sessionStorage.setItem('role', '0');
+        }
+    })
   }
-*/
 
 
-  if(form.value.email === 'hola' && form.value.password === '123'){
+
+/*   if(form.value.email === 'hola' && form.value.password === '123'){
     
     localStorage.setItem('email', form.value.email);
     localStorage.setItem('password', form.value.password);
@@ -58,7 +59,7 @@ login(form: NgForm){
     localStorage.setItem('email', '');
     localStorage.setItem('password', '');
     
-  }
+  } */
   
 }
 
