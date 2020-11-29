@@ -57,6 +57,8 @@ export class CompanyRegisterComponent implements OnInit {
               progressAnimation: 'decreasing',
               timeOut: 5000
             });
+
+            sessionStorage.setItem('role', '2');
             this.router.navigate(['/home']);
           });
         });

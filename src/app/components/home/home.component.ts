@@ -19,11 +19,13 @@ export class HomeComponent implements OnInit {
   imguser: string = "assets/images/images.png";
   imgexit: string = "assets/images/exit.png";
   search = new search();
-  
+  createCompany : boolean;
   
  
 
-    constructor(private router: Router, private eventEmitterService: EventEmitterService) { }
+    constructor(private router: Router, private eventEmitterService: EventEmitterService) { 
+      this.createCompany = sessionStorage.getItem('role') == '1';
+    }
   ngOnInit(): void {
     if (this.eventEmitterService.subsVar==undefined) {//Para poder ejecutar el método togglesidebar() de HomeComponent 
       this.eventEmitterService.subsVar = this.eventEmitterService.    
