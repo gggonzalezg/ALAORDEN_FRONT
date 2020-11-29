@@ -79,9 +79,9 @@ export class MainServiceService {
   getpaymentypes(){
     return this.http.get<[]>(`${this.Url}/ `); 
   }
-  setcontract(contract : contract_service){
+  setcontract(contract : any){
     //Agendar servicio 
-    return this.http.post<contract_service>(`${this.Url}/`, contract); 
+    return this.http.post<contract_service>(`${this.Url}/contract/create`, contract); 
   }
 
 }

@@ -41,9 +41,9 @@ export class HomeComponent implements OnInit {
     onSubmit(form: NgForm){
       if(form.value.service != '' && form.value.date != '' && form.value.place != '' && form.value.desc!= ''){
       let searchobj = new search();
-      searchobj.service = form.value.service;
-      searchobj.time = form.value.date;
-      searchobj.location = form.value.place;
+      searchobj.type = form.value.service;
+      searchobj.date = form.value.date;
+      searchobj.city = form.value.place;
       searchobj.desc = form.value.desc;
   
       console.log(searchobj); //Se obtienen los datos de la búsqueda

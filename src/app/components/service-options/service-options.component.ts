@@ -1,5 +1,6 @@
 import { HttpEvent } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { contract } from 'src/app/Model/contract.model';
 import { contract_service } from 'src/app/Model/contract_service.model';
@@ -24,6 +25,7 @@ export class ServiceOptionsComponent implements OnInit {
   opened = false;
   imgHeader: string = "assets/images/Header.png";
   imgHamburguer: string = "assets/images/Hamburguer.png";
+  selectedPaymentType = null;
 
   f = new Date();
   fecha = (this.f.getDate() + "/" + (this.f.getMonth() + 1) + "/" + this.f.getFullYear());
@@ -44,32 +46,56 @@ export class ServiceOptionsComponent implements OnInit {
   ];*/
   contract: contract_service;
 
-  constructor(private eventEmitterService: EventEmitterService, private http: MainServiceService, private toastr: ToastrService) { }
+  constructor(private eventEmitterService: EventEmitterService, private router: Router, private http: MainServiceService, private toastr: ToastrService) { }
 
   toggleSidebar() { //Abrir o cerrar el manú lateral
     this.opened = !this.opened;
 
   }
   selectservice(i: any) { //Cuando se selecciona una de las opciones de servicio
-
-    //Limpiar la memoria de la búsqueda realizada
-    localStorage.removeItem('searchservice');
-    localStorage.removeItem('searchtime');
-    localStorage.removeItem('searchlocation');
-    localStorage.removeItem('searchdesc');
-
-    //Agendar servicio
-    this.http.setcontract(i);
-
-
-    this.toastr.success('Su servicio ha sido agendado!', 'Felicidades', {
-      positionClass: 'toast-bottom-right',
-      progressBar: true,
-      progressAnimation: 'decreasing',
-      timeOut: 5000
-    });
-
+    if (this.selectedPaymentType != null) {
+      console.log(i)
+      let servicePayload = {
+        companyId: i.companyId,
+        userId: sessionStorage.getItem('userId'),
+        paymentType: this.selectedPaymentType['value'] || 1,
+        date: localStorage.getItem('searchtime'),
+        companyOwner : i.owner,
+        state: 'I',
+        services: [{
+          serviceId: i.serviceId
+        }]
+      };
+      console.log(this.selectedPaymentType);
+      //Agendar servicio
+      this.http.setcontract(servicePayload).subscribe(data => {
+        //Limpiar la memoria de la búsqueda realizada
+        localStorage.removeItem('searchservice');
+        localStorage.removeItem('searchlocation');
+        localStorage.removeItem('searchdesc');
+        localStorage.removeItem('searchtime');
+        this.toastr.success('Su servicio ha sido agendado!', 'Felicidades', {
+          positionClass: 'toast-bottom-right',
+          progressBar: true,
+          progressAnimation: 'decreasing',
+          timeOut: 5000
+        });
+        this.router.navigate(['/home']);
+      })
+    } else {
+      this.toastr.warning('Por favor seleccione un método de pago!', 'Aviso', {
+        positionClass: 'toast-bottom-right',
+        progressBar: true,
+        progressAnimation: 'decreasing',
+        timeOut: 5000
+      });
+    }
   }
+
+  selectPaymentType(type: any) {
+    this.selectedPaymentType = type;
+  }
+
   ngOnInit() {
     let searchobj = new search(); //Armar el objeto de búsqueda para mandarlo al backend
     searchobj.type = Number(localStorage.getItem('searchservice'));
@@ -78,22 +104,25 @@ export class ServiceOptionsComponent implements OnInit {
     searchobj.desc = localStorage.getItem('searchdesc');
 
     this.http.getserviceoptions(searchobj) // Enviar los parámetros de búsqueda al servicio
-    .subscribe(data =>{
-      this.services = data;
-    });
+      .subscribe(data => {
+        this.services = data;
+      });
 
     this.types = [
-      {value : 0,
-      viewValue : 'En efectivo',
-      desc : 'Pago en dinero fisico'
+      {
+        value: 0,
+        viewValue: 'En efectivo',
+        desc: 'Pago en dinero fisico'
       },
-      {value : 1,
-      viewValue : 'Tarjeta de credito',
-      desc : 'Solicitud de credito'
+      {
+        value: 1,
+        viewValue: 'Tarjeta de credito',
+        desc: 'Solicitud de credito'
       },
-      {value : 2,
-      viewValue : 'PSE',
-      desc : 'Pago electronico'
+      {
+        value: 2,
+        viewValue: 'PSE',
+        desc: 'Pago electronico'
       },
     ]
 
