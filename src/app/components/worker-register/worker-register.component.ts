@@ -42,7 +42,14 @@ export class WorkerRegisterComponent implements OnInit {
         timeOut: 5000
       });
       this.router.navigate(['/home']);
-    }
+    }else{
+        this.toastr.error('Ha ocurrido un error, por favor intente nuevamente!', 'Felicidades', {
+          positionClass: 'toast-bottom-right',
+          progressBar: true,
+          progressAnimation: 'decreasing',
+          timeOut: 5000
+        });
+      }
   }
 
 

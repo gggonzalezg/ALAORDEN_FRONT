@@ -11,8 +11,8 @@ import { MainServiceService } from 'src/app/Services/main-service.service';
 })
 export class NotificationsComponent implements OnInit {
   opened = false;
-  imgHeader: string = "assets/images/Header.png";
-  imgHamburguer: string = "assets/images/Hamburguer.png";
+  imgHeader = 'assets/images/Header.png';
+  imgHamburguer = 'assets/images/Hamburguer.png';
   isSeller = false;
 
   contracts: contract[];
@@ -21,7 +21,7 @@ export class NotificationsComponent implements OnInit {
     this.isSeller = sessionStorage.getItem('role') === '2';
   }
 
-  toggleSidebar() { //Abrir o cerrar el manú lateral
+  toggleSidebar(){ // Abrir o cerrar el manú lateral
     this.opened = !this.opened;
 
   }
@@ -32,7 +32,7 @@ export class NotificationsComponent implements OnInit {
         this.contracts = data;
       });
 
-    if (this.eventEmitterService.subsVar == undefined) {//Para poder ejecutar el método togglesidebar() de HomeComponent 
+    if (this.eventEmitterService.subsVar == undefined) {//Para poder ejecutar el método togglesidebar() de HomeComponent
       this.eventEmitterService.subsVar = this.eventEmitterService.
         invokeFirstComponentFunction.subscribe((name: string) => {
           this.toggleSidebar();

@@ -11,7 +11,7 @@ import { EventEmitterService } from './Services/event-emitter.service';
 import { LoginGuard } from './Guards/login.guard';
 import { MainServiceService } from './Services/main-service.service';
 import { HttpClientModule } from '@angular/common/http';
-import {MatSelectModule} from '@angular/material/select'; 
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -31,32 +31,34 @@ import { DecisionServiceComponent } from './components/decision-service/decision
 import { WorkerRegisterComponent } from './components/worker-register/worker-register.component';
 import { ServiceOptionsComponent } from './components/service-options/service-options.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { CompanyRegisterComponent } from './components/company-register/company-register.component'
+import { CompanyRegisterComponent } from './components/company-register/company-register.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
-  {path: 'home', component: HomeComponent, canActivate: [LoginGuard]},
+  {path: 'home', component: HomeComponent}, // , canActivate: [LoginGuard]},
   {path: 'info', component: InfoComponent},
   {path: 'recover', component: RecoverComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'paymentinfo', component: PaymentinfoComponent , canActivate: [LoginGuard]},
-  {path: 'workerregister', component: WorkerRegisterComponent, canActivate: [LoginGuard]},
-  {path: 'myuser', component: MyuserComponent, canActivate: [LoginGuard]},
-  {path: 'history', component: HistoryComponent, canActivate: [LoginGuard]},
-  {path: 'worker', component: WorkerComponent, canActivate: [LoginGuard]},
-  {path: 'servicehistorycard', component: ServiceHistoryCardComponent, canActivate: [LoginGuard]},
-  {path: 'asksupport', component: AskSupportComponent, canActivate: [LoginGuard]},
-  {path: 'categories', component: CategoriesComponent, canActivate: [LoginGuard]},
-  {path: 'notifications', component: NotificationsComponent, canActivate: [LoginGuard]},
-  {path: 'decisionservice', component: DecisionServiceComponent, canActivate: [LoginGuard]},
-  {path: 'serviceoptions', component: ServiceOptionsComponent, canActivate: [LoginGuard]},
-  {path: 'sidebar', component: SidebarComponent, canActivate: [LoginGuard]},
-  {path: 'companyregister', component: CompanyRegisterComponent, canActivate: [LoginGuard]}
+  {path: 'paymentinfo', component: PaymentinfoComponent }, // , canActivate: [LoginGuard]},
+  {path: 'workerregister', component: WorkerRegisterComponent}, // , canActivate: [LoginGuard]},
+  {path: 'myuser', component: MyuserComponent}, // , canActivate: [LoginGuard]},
+  {path: 'history', component: HistoryComponent}, // , canActivate: [LoginGuard]},
+  {path: 'worker', component: WorkerComponent}, // , canActivate: [LoginGuard]},
+  {path: 'servicehistorycard', component: ServiceHistoryCardComponent}, // , canActivate: [LoginGuard]},
+  {path: 'asksupport', component: AskSupportComponent}, // , canActivate: [LoginGuard]},
+  {path: 'categories', component: CategoriesComponent}, // , canActivate: [LoginGuard]},
+  {path: 'notifications', component: NotificationsComponent}, // , canActivate: [LoginGuard]},
+  {path: 'decisionservice', component: DecisionServiceComponent}, // , canActivate: [LoginGuard]},
+  {path: 'serviceoptions', component: ServiceOptionsComponent}, // , canActivate: [LoginGuard]},
+  {path: 'sidebar', component: SidebarComponent}, // , canActivate: [LoginGuard]},
+  {path: 'companyregister', component: CompanyRegisterComponent}// , canActivate: [LoginGuard]}
 
-]
+];
 
 @NgModule({
   declarations: [
@@ -80,19 +82,21 @@ const routes: Routes = [
     SidebarComponent,
     CompanyRegisterComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatSelectModule,
-    ToastrModule.forRoot(),
-    RouterModule.forRoot(routes),
-    Ng2SearchPipeModule,
-    SidebarModule.forRoot(),
-    HttpClientModule
-  ],
-  providers: [ LoginGuard, EventEmitterService, MainServiceService],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatSelectModule,
+        ToastrModule.forRoot(),
+        RouterModule.forRoot(routes),
+        Ng2SearchPipeModule,
+        SidebarModule.forRoot(),
+        HttpClientModule,
+        MatDatepickerModule,
+        MatNativeDateModule
+    ],
+  providers: [ LoginGuard, EventEmitterService, MainServiceService,MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

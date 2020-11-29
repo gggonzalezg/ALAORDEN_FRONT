@@ -15,8 +15,21 @@
         <form #companyForm="ngForm" (ngSubmit)="onSubmit(companyForm)">
           <input class="input is-rounded" type="text" name="cname" placeholder="Nombre de la compañía" ngModel>
           <input class="input is-rounded" type="text" name="caddress" placeholder="Ubicación" ngModel>
-          <input class="input is-rounded" type="text" name="ccountry" placeholder="País" ngModel>
-          <input class="input is-rounded" type="text" name="ccity" placeholder="Ciudad" ngModel>
+          <label for="paisSelection" class="twoColumns">Seleccione el país.</label>
+          <select id="paisSelection" ngModel="{{selectedPais}}">
+            <option *ngFor="let pais of paises">
+              {{pais.name}}
+            </option>
+          </select>
+          <br>
+          <br>
+
+          <label for="ciudadSelection" class="twoColumns">Seleccione la ciudad.</label>
+          <select id="ciudadSelection" ngModel="{{selectedCiudad}}">
+            <option *ngFor="let ciudad of ciudades">
+              {{ciudad.name}}
+            </option>
+          </select>
           <button class="register" type="submit">Registrar empresa</button>
 
         </form>

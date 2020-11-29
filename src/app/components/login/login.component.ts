@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { user } from 'src/app/Model/user';
 import { MainServiceService } from 'src/app/Services/main-service.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,32 +13,33 @@ import { MainServiceService } from 'src/app/Services/main-service.service';
 })
 export class LoginComponent implements OnInit {
 
-  imgIcon: string = "assets/images/Imagen 6.png";
-  imgInfo: string = "assets/images/Grupo 7.png";
-  imgSeparator: string = "assets/images/Trazado 1.png";
-  imgCover: string = "assets/images/Icon awesome-toolbox.png";
-  imgCover2: string = "assets/images/Icon awesome-tools.png";
-  
+  imgIcon = 'assets/images/Imagen 6.png';
+  imgInfo = 'assets/images/Grupo 7.png';
+  imgSeparator = 'assets/images/Trazado 1.png';
+  imgCover = 'assets/images/Icon awesome-toolbox.png';
+  imgCover2 = 'assets/images/Icon awesome-tools.png';
+
   User: user;
-  constructor(private router: Router, private mainservice:MainServiceService) { }
+  constructor(private router: Router, private mainservice: MainServiceService, private toastr: ToastrService) { }
 
   ngOnInit() {
-   
+
   }
 
   async login(form: NgForm){
-  if(form.value.email != '' && form.value.password != ''){
-    let userobj = new user();//Armar el objeto usuario para enviarlo como parámetro al servicio
+  if (form.value.email !== '' && form.value.password !== ''){
+    const userobj = new user(); // Armar el objeto usuario para enviarlo como parámetro al servicio
     userobj.email = form.value.email;
     userobj.password = form.value.password;
 
     this.mainservice.getUser(userobj).subscribe( data => {
 
-      if(data.body['message'] === true){
+      if (data.body.message === true){
         sessionStorage.setItem('email', form.value.email);
         sessionStorage.setItem('password', form.value.password);
         sessionStorage.setItem('role', data.body['role']);
         sessionStorage.setItem('userId', data.body['userId']);
+        sessionStorage.setItem('role', data.body.role);
         this.router.navigate(['/home']);
         }
         else{
@@ -45,14 +47,18 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem('password', '');
           sessionStorage.setItem('role', '0');
           sessionStorage.setItem('userId', '');
+          this.toastr.error('Ha ocurrido un error, por favor intente nuevamente!', 'Felicidades', {
+            positionClass: 'toast-bottom-right',
+            progressBar: true,
+            progressAnimation: 'decreasing',
+            timeOut: 5000
+          });
         }
-    })
+    });
   }
 
-
-
 /*   if(form.value.email === 'hola' && form.value.password === '123'){
-    
+
     localStorage.setItem('email', form.value.email);
     localStorage.setItem('password', form.value.password);
     this.router.navigate(['/home']);
@@ -60,9 +66,9 @@ export class LoginComponent implements OnInit {
   else{
     localStorage.setItem('email', '');
     localStorage.setItem('password', '');
-    
+
   } */
-  
+
 }
 
 }
