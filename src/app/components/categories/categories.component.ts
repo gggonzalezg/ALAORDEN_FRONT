@@ -8,8 +8,8 @@ import { EventEmitterService } from 'src/app/Services/event-emitter.service';
 export class CategoriesComponent implements OnInit {
   opened = false;
 
-  imgHeader: string = "assets/images/Header.png";
-  imgHamburguer: string = "assets/images/Hamburguer.png";
+  imgHeader = 'assets/images/Header.png';
+  imgHamburguer = 'assets/images/Hamburguer.png';
 
   searchText;
   heroes = [
@@ -35,17 +35,17 @@ export class CategoriesComponent implements OnInit {
   ];
 
   constructor(private eventEmitterService: EventEmitterService) { }
-  toggleSidebar(){ //Abrir o cerrar el manú lateral
+  toggleSidebar(){ // Abrir o cerrar el manú lateral
     this.opened = !this.opened;
-  
+
     }
-    ngOnInit() { if (this.eventEmitterService.subsVar==undefined) {//Para poder ejecutar el método togglesidebar() de HomeComponent 
-      this.eventEmitterService.subsVar = this.eventEmitterService.    
-      invokeFirstComponentFunction.subscribe((name:string) => {    
-        this.toggleSidebar();    
-      });    
-    }    
+    ngOnInit() { if (this.eventEmitterService.subsVar == undefined) {// Para poder ejecutar el método togglesidebar() de HomeComponent
+      this.eventEmitterService.subsVar = this.eventEmitterService.
+      invokeFirstComponentFunction.subscribe((name: string) => {
+        this.toggleSidebar();
+      });
+    }
   }
- 
-   
+
+
   }

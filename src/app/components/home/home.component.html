@@ -22,9 +22,15 @@
           <br>
           
               <input class="input is-rounded" type="text" name="date" placeholder="¿Cuándo podemos visitarte?" ngModel>
+               <mat-datepicker name="date" md-placeholder="Enter date" ngModel ngDefaultControl></mat-datepicker>
+               <br>
               <br>
-              <br>
-              <input class="input is-rounded" type="text" name="place" placeholder="¿A dónde vamos?" ngModel>
+               <label for="ciudadSelection" >Seleccione la ciudad.</label>
+               <select id="ciudadSelection" name="ciudadSelection" ngModel="{{selectedCiudad}}">
+                   <option *ngFor="let ciudad of ciudades">
+                       {{ciudad.name}}
+                   </option>
+               </select>
               <br>
               <br>
            

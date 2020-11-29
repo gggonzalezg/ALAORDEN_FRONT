@@ -1,6 +1,6 @@
 export class user{
-    email:any;
+    email: any;
     password: any;
-
-
+    message: any;
+    role: any;
 }

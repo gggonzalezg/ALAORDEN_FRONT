@@ -9,24 +9,36 @@
         <input class="input is-rounded" type="text" name="name" placeholder="Nombres" ngModel>
   
         <input class="input is-rounded" type="text" name="lastName" placeholder="Apellidos" ngModel>
-        
+
+          <input class="input is-rounded" type="text" name="phone" placeholder="Número de teléfono" ngModel>
+
+          <label for="tipoDocumentoSelection" class="twoColumns">Seleccione el tipo de documento.</label>
+          <select id="tipoDocumentoSelection" ngModel="{{selectedTipoDocumento}}">
+              <option *ngFor="let documento of documentos">
+                  {{documento.name}}
+              </option>
+          </select>
+
+          <input class="input is-rounded" type="text" name="document" placeholder="Documento de identidad" ngModel>
+
         <input class="input is-rounded" type="text" name="email"placeholder="Correo electrónico" ngModel>
-  
-        <input class="input is-rounded" type="text" name="document" placeholder="Documento de identidad" ngModel>
-  
-        <input class="input is-rounded" type="text" name="documentType" placeholder="Tipo de documento" ngModel>
-       
-        <input class="input is-rounded" type="password" name="password"placeholder="Contraseña" ngModel>
+
+          <input class="input is-rounded" type="password" name="password"placeholder="Contraseña" ngModel>
      
-        <input class="input is-rounded" type="text" name="country" placeholder="País"ngModel>
-       
-        <input class="input is-rounded" type="text" name="city" placeholder="Ciudad" ngModel>
-        
-        <input class="input is-rounded" type="text" name="phone" placeholder="Número de teléfono" ngModel>
-        
-      
-    
-   
+          <label for="paisSelection" class="twoColumns">Seleccione el país.</label>
+          <select id="paisSelection" ngModel="{{selectedPais}}">
+              <option *ngFor="let pais of paises">
+                  {{pais.name}}
+              </option>
+          </select>
+
+          <label for="ciudadSelection" class="twoColumns">Seleccione la ciudad.</label>
+          <select id="ciudadSelection" ngModel="{{selectedCiudad}}">
+              <option *ngFor="let ciudad of ciudades">
+                  {{ciudad.name}}
+              </option>
+          </select>
+
       <button class="register" type="submit">Registrarse</button>
     </form>
     

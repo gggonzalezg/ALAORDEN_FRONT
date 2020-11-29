@@ -19,6 +19,12 @@
     grid-column: x2 / x3;
     grid-row: y0 / y1;
 }
+.twoColumns {
+    border-radius: 290486px;
+    padding-left: calc(calc(0.75em - 1px) + 0.375em);
+    padding-right: calc(calc(0.75em - 1px) + 0.375em);
+    columns: 2;
+}
 img.icon{
     height: 240px;
     width: 240px;
