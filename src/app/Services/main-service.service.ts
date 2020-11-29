@@ -48,9 +48,9 @@ export class MainServiceService {
     return this.http.post<company_collaborator>(`${this.Url}/`, collaborator); 
   }
 
-  createcompany(newcompany: company){
+  createcompany(newcompany: company, userId : string){
     //Crear compañía
-    return this.http.post<company>(`${this.Url}/ `, newcompany); 
+    return this.http.post<company>(`${this.Url}/company/create-from-user/${userId}`, newcompany); 
   }
 
   addservices(newservices: service[]){

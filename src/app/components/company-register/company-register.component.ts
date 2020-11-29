@@ -45,7 +45,8 @@ export class CompanyRegisterComponent implements OnInit {
     console.log(companyobj); //Se obtienen los datos de la compañía
     console.log(this.datarray); //Se obtienen los datos de los servicios
 
-    if(this.mainservice.createcompany(companyobj)){//Si se creó la compañía exitosamente
+    let user = sessionStorage.getItem('userId');
+    if(this.mainservice.createcompany(companyobj, user)){//Si se creó la compañía exitosamente
       if(this.mainservice.addservices(this.datarray)){
 
         this.toastr.success('La compañía ha sido creada!', 'Felicidades', {

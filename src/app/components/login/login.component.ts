@@ -37,12 +37,14 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('email', form.value.email);
         sessionStorage.setItem('password', form.value.password);
         sessionStorage.setItem('role', data.body['role']);
+        sessionStorage.setItem('userId', data.body['userId']);
         this.router.navigate(['/home']);
         }
         else{
           sessionStorage.setItem('email', '');
           sessionStorage.setItem('password', '');
           sessionStorage.setItem('role', '0');
+          sessionStorage.setItem('userId', '');
         }
     })
   }

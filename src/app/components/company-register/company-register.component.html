@@ -1,46 +1,43 @@
-
 <ng-sidebar-container>
-    <!--Sidebar-->
-      <ng-sidebar [opened]="opened">
-        <app-sidebar></app-sidebar>
-      </ng-sidebar>
-    
-      <div ng-sidebar-content>
-        <button (click)="toggleSidebar()" class="hamburguer" ></button>
-        <figure class="image is-480x480" >
-          <img [src]=imgHeader height="100px" class="header">
-        </figure>
-  <div style="margin-left: 50px; margin-right: 50px;">
-    
-    <div class="center">
-      <form #companyForm="ngForm" (ngSubmit)="onSubmit(companyForm)">
+  <!--Sidebar-->
+  <ng-sidebar [opened]="opened">
+    <app-sidebar></app-sidebar>
+  </ng-sidebar>
+
+  <div ng-sidebar-content>
+    <button (click)="toggleSidebar()" class="hamburguer"></button>
+    <figure class="image is-480x480">
+      <img [src]=imgHeader height="100px" class="header">
+    </figure>
+    <div style="margin-left: 50px; margin-right: 50px;">
+
+      <div class="center">
+        <form #companyForm="ngForm" (ngSubmit)="onSubmit(companyForm)">
           <input class="input is-rounded" type="text" name="cname" placeholder="Nombre de la compañía" ngModel>
-          <input class="input is-rounded" type="text" name="clocation" placeholder="Ubicación" ngModel>    
-          <input class="input is-rounded" type="text" name="ccountry" placeholder="País" ngModel>      
-          <input class="input is-rounded" type="text" name="ccity" placeholder="Ciudad" ngModel>       
-        <button class="register"  type="submit">Registrar empresa</button>
+          <input class="input is-rounded" type="text" name="clocation" placeholder="Ubicación" ngModel>
+          <input class="input is-rounded" type="text" name="ccountry" placeholder="País" ngModel>
+          <input class="input is-rounded" type="text" name="ccity" placeholder="Ciudad" ngModel>
+          <button class="register" type="submit">Registrar empresa</button>
 
-      </form>
-        <button class="add" (click)="addService()">Adicionar</button>
-      <div class="services">
-      <nav class="level" *ngFor="let obj of datarray">
-        <input class="input is-rounded" type="text" placeholder="Servicio" name="name" [(ngModel)]="obj.name">
-        <input class="input is-rounded" type="text" placeholder="Categoria" name="category" [(ngModel)]="obj.category">
-        <input class="input is-rounded" type="text" placeholder="Precio" name="price" [(ngModel)]="obj.price">
-        
-      </nav>
-     
+        </form>
+        <div class="services">
+          <nav class="level" *ngFor="let obj of datarray">
+            <input class="input is-rounded" type="text" placeholder="Servicio" name="name" [(ngModel)]="obj.name">
+            <input class="input is-rounded" type="text" placeholder="Categoria" name="category"
+              [(ngModel)]="obj.category">
+            <input class="input is-rounded" type="text" placeholder="Precio" name="price" [(ngModel)]="obj.price">
+
+          </nav>
+          <button class="add" (click)="addService()">Adicionar</button>
+        </div>
+        <div>
+          
+        </div>
+      </div>
     </div>
-    <div>
-      
-    </div>
+
   </div>
-    </div>
 
-</div>
 
-   
-   
-  </ng-sidebar-container>
-        
 
+</ng-sidebar-container>
