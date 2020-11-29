@@ -15,15 +15,15 @@
       <table class="table is-fullwidth">
         
         <tbody>
-    <tr *ngFor="let service of services; let i=index">
+    <tr *ngFor="let service of services; let i=index" (click)="selectservice(i)">
         <div class="columns">
             <div class="column">
             <p class="worker_name">{{service.name}}</p>
-            <p>{{service.service}}</p>
-            <p>Calificación:{{service.score}}</p>
+            <p>{{service.description}}</p>
+            <p>Calificación:{{service.score || '5.0'}}</p>
         </div>
         <div class="column">
-            <p class="price"><a (click)="selectservice(i)">{{service.price}}</a></p>
+            <p class="price"><a>{{service.price}}</a></p>
         </div>
         </div>
     </tr>

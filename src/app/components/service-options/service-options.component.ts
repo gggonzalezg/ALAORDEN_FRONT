@@ -26,15 +26,15 @@ export class ServiceOptionsComponent implements OnInit {
   imgHamburguer: string = "assets/images/Hamburguer.png";
 
   f = new Date();
-  fecha=(this.f.getDate() + "/" + (this.f.getMonth() +1) + "/" + this.f.getFullYear());
+  fecha = (this.f.getDate() + "/" + (this.f.getMonth() + 1) + "/" + this.f.getFullYear());
 
-  name:any;
+  name: any;
   service: any;
-  score:any;
-  price:any;
+  score: any;
+  price: any;
 
-  types:pay[];
-  services:service_options[];
+  types: pay[];
+  services: service_options[];
 
   //Array de ejemplo
   /*services:Array<service_options>=[
@@ -44,63 +44,65 @@ export class ServiceOptionsComponent implements OnInit {
   ];*/
   contract: contract_service;
 
-  constructor(private eventEmitterService: EventEmitterService, private http:MainServiceService , private toastr: ToastrService) { }
+  constructor(private eventEmitterService: EventEmitterService, private http: MainServiceService, private toastr: ToastrService) { }
 
-  toggleSidebar(){ //Abrir o cerrar el manú lateral
+  toggleSidebar() { //Abrir o cerrar el manú lateral
     this.opened = !this.opened;
-  
-    }
-    selectservice(i: any){ //Cuando se selecciona una de las opciones de servicio
 
-      //Limpiar la memoria de la búsqueda realizada
-      localStorage.removeItem('searchservice');
-      localStorage.removeItem('searchtime');
-      localStorage.removeItem('searchlocation');
-      localStorage.removeItem('searchdesc');
+  }
+  selectservice(i: any) { //Cuando se selecciona una de las opciones de servicio
 
-      //Agendar servicio
+    //Limpiar la memoria de la búsqueda realizada
+    localStorage.removeItem('searchservice');
+    localStorage.removeItem('searchtime');
+    localStorage.removeItem('searchlocation');
+    localStorage.removeItem('searchdesc');
 
-    
-      //this.contract.service=this.services[i].service;
-      //this.contract.company=this.services[i].name;
-      //this.contract.date=this.fecha;
-      //this.contract.payment=;
-      //this.contract.user=localStorage.getItem('email');
-
-      //this.http.setcontract(this.contract);
+    //Agendar servicio
+    this.http.setcontract(i);
 
 
-      this.toastr.success('Su servicio ha sido agendado!', 'Felicidades', {
-        positionClass: 'toast-bottom-right',
-        progressBar: true,
-        progressAnimation: 'decreasing',
-        timeOut: 5000
-      });
+    this.toastr.success('Su servicio ha sido agendado!', 'Felicidades', {
+      positionClass: 'toast-bottom-right',
+      progressBar: true,
+      progressAnimation: 'decreasing',
+      timeOut: 5000
+    });
 
-    }
+  }
   ngOnInit() {
     let searchobj = new search(); //Armar el objeto de búsqueda para mandarlo al backend
-    searchobj.service = localStorage.getItem('searchservice');
-    searchobj.time = localStorage.getItem('searchtime');
-    searchobj.location = localStorage.getItem('searchlocation');
+    searchobj.type = Number(localStorage.getItem('searchservice'));
+    searchobj.date = localStorage.getItem('searchtime');
+    searchobj.city = Number(localStorage.getItem('searchlocation'));
     searchobj.desc = localStorage.getItem('searchdesc');
 
-  /*this.http.getserviceoptions(searchobj) // Enviar los parámetros de búsqueda al servicio
-  .subscribe(data =>{
-    this.services = data;
-  });*/
-  
-  this.http.getpaymentypes() // Recibir los tipos de pago del servicio y mostrárlos como opciones
-  .subscribe(data =>{
-    this.types = data;
-  });
+    this.http.getserviceoptions(searchobj) // Enviar los parámetros de búsqueda al servicio
+    .subscribe(data =>{
+      this.services = data;
+    });
 
-  if (this.eventEmitterService.subsVar==undefined) {//Para poder ejecutar el método togglesidebar() de HomeComponent 
-      this.eventEmitterService.subsVar = this.eventEmitterService.    
-      invokeFirstComponentFunction.subscribe((name:string) => {    
-        this.toggleSidebar();    
-      });    
-    }    
-  } 
+    this.types = [
+      {value : 0,
+      viewValue : 'En efectivo',
+      desc : 'Pago en dinero fisico'
+      },
+      {value : 1,
+      viewValue : 'Tarjeta de credito',
+      desc : 'Solicitud de credito'
+      },
+      {value : 2,
+      viewValue : 'PSE',
+      desc : 'Pago electronico'
+      },
+    ]
+
+    if (this.eventEmitterService.subsVar == undefined) {//Para poder ejecutar el método togglesidebar() de HomeComponent 
+      this.eventEmitterService.subsVar = this.eventEmitterService.
+        invokeFirstComponentFunction.subscribe((name: string) => {
+          this.toggleSidebar();
+        });
+    }
+  }
 
 }

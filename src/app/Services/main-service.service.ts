@@ -36,7 +36,7 @@ export class MainServiceService {
 
   getserviceoptions(searchobj: search){
     //Obtener opciones de servicios a partir de la búsqueda principal
-    return this.http.put<service_options[]>(`${this.Url}/`, searchobj);
+    return this.http.post<service_options[]>(`${this.Url}/service/search`, searchobj);
   }
   getcompanies(){
     //Obtener el listado de compañías para que el prestador de servicios se identifíque con una

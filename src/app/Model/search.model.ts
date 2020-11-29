@@ -1,7 +1,7 @@
 export class search{
-    service:any;
-    time: any;
-    location:any;
+    type:any;
+    date: any;
+    city:any;
     desc:any;
     id:any;
 
