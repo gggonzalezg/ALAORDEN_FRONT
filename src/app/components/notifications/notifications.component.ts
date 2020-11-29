@@ -46,9 +46,11 @@ export class NotificationsComponent implements OnInit {
 
       console.log(i, data)
       localStorage.setItem('service', newData['serviceName']);
+      localStorage.setItem('notId', i.id);
       localStorage.setItem('date', newData['contractDate']);
       localStorage.setItem('city', newData['cityName']);
-      localStorage.setItem('contract', newData['contract']);
+      localStorage.setItem('contract', i.contractId);
+      localStorage.setItem('descriptionC', newData['description']);
 
       this.router.navigate(['/decisionservice']);
     })
