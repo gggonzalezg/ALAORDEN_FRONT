@@ -14,12 +14,15 @@
       <div class="center">
         <form #companyForm="ngForm" (ngSubmit)="onSubmit(companyForm)">
           <input class="input is-rounded" type="text" name="cname" placeholder="Nombre de la compañía" ngModel>
-          <input class="input is-rounded" type="text" name="clocation" placeholder="Ubicación" ngModel>
+          <input class="input is-rounded" type="text" name="caddress" placeholder="Ubicación" ngModel>
           <input class="input is-rounded" type="text" name="ccountry" placeholder="País" ngModel>
           <input class="input is-rounded" type="text" name="ccity" placeholder="Ciudad" ngModel>
           <button class="register" type="submit">Registrar empresa</button>
 
         </form>
+
+        <button class="add" (click)="addService()">Adicionar</button>
+
         <div class="services">
           <nav class="level" *ngFor="let obj of datarray">
             <input class="input is-rounded" type="text" placeholder="Servicio" name="name" [(ngModel)]="obj.name">
@@ -28,7 +31,6 @@
             <input class="input is-rounded" type="text" placeholder="Precio" name="price" [(ngModel)]="obj.price">
 
           </nav>
-          <button class="add" (click)="addService()">Adicionar</button>
         </div>
         <div>
           

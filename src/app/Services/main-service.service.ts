@@ -53,9 +53,9 @@ export class MainServiceService {
     return this.http.post<company>(`${this.Url}/company/create-from-user/${userId}`, newcompany); 
   }
 
-  addservices(newservices: service[]){
+  addservices(newservices: service[], companyId : string){
     //Agregar servicios a la compañía
-    return this.http.post<service>(`${this.Url}/ `, newservices); 
+    return this.http.post<service>(`${this.Url}/service/register/${companyId}`, newservices); 
   }
 
   getmyUser(email){

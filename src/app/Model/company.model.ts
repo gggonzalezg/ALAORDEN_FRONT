@@ -1,8 +1,8 @@
 export class company{
     name:any;
-    location: any;
+    address: any;
     country:any;
     city:any;
     id:any;
-
+    owner?:any;
 }

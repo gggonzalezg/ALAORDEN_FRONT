@@ -3,5 +3,5 @@ export class service{
     category: any;
     price:any;
     id:any;
-
+    companyId: any;
 }
