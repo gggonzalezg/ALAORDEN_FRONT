@@ -12,7 +12,7 @@
 
           <input class="input is-rounded" type="text" name="phone" placeholder="Número de teléfono" ngModel>
 
-          <label for="tipoDocumentoSelection" class="twoColumns">Seleccione el tipo de documento.</label>
+          <label class="input is-rounded" for="tipoDocumentoSelection">Seleccione el tipo de documento.</label>
           <select id="tipoDocumentoSelection" ngModel="{{selectedTipoDocumento}}">
               <option *ngFor="let documento of documentos">
                   {{documento.name}}
@@ -25,14 +25,14 @@
 
           <input class="input is-rounded" type="password" name="password"placeholder="Contraseña" ngModel>
      
-          <label for="paisSelection" class="twoColumns">Seleccione el país.</label>
+          <label class="input is-rounded" for="paisSelection">Seleccione el país.</label>
           <select id="paisSelection" ngModel="{{selectedPais}}">
               <option *ngFor="let pais of paises">
                   {{pais.name}}
               </option>
           </select>
 
-          <label for="ciudadSelection" class="twoColumns">Seleccione la ciudad.</label>
+          <label class="input is-rounded" for="ciudadSelection">Seleccione la ciudad.</label>
           <select id="ciudadSelection" ngModel="{{selectedCiudad}}">
               <option *ngFor="let ciudad of ciudades">
                   {{ciudad.name}}

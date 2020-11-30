@@ -19,25 +19,24 @@
             <main>
                 <form style="width: 100%;" class="myform" #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
                     <label class="input is-rounded" for="serviceSelection">¿Qué servicio necesitas? </label>
-                    <select id="serviceSelection" class="input is-rounded" name="serviceSelection"
-                            ngModel="{{selectedService}}" >
-                        <option *ngFor="let servicio of servicios">
-                            {{servicio
-                            .name}}
-                        </option>
+                    <select  id="serviceSelection" name="serviceSelection" ngModel="{{selectedService}}">
+
+                        <option *ngFor="let servicio of servicios"> {{servicio.name}} </option>
                     </select>
                     <br>
                     <br>
 
-                    <label for="selectDate">¿Cuándo podemos visitarte?</label>
+                    <label class="input is-rounded" for="selectDate">¿Cuándo podemos visitarte?</label>
                     <mat-form-field id="selectDate">
-                        <input matInput type="text" [matDatepicker]="picker" placeholder="Escoge una fecha">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <input matInput type="text" [matDatepicker]="picker" placeholder="Escoge una fecha"
+                               style="background-color: #ffffff">
+                        <mat-datepicker-toggle matSuffix [for]="picker" style="background-color: #ffffff">
+                        </mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                     <br>
                     <br>
-                    <label for="ciudadSelection">Seleccione la ciudad.</label>
+                    <label class="input is-rounded" for="ciudadSelection">Seleccione la ciudad.</label>
                     <select id="ciudadSelection" name="ciudadSelection" ngModel="{{selectedCiudad}}">
                         <option *ngFor="let ciudad of ciudades">
                             {{ciudad.name}}
