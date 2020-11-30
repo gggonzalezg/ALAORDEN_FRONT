@@ -18,15 +18,16 @@
             <th><abbr>Código</abbr></th>
             <th><abbr>Servicio</abbr></th>
             <th><abbr >Prestador de servicio</abbr></th>
-            <th><abbr>Calificación</abbr></th>
+            <th><abbr>Estado</abbr></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let history of histories ; let i=index">
-            <th><button (click)="selectedservice(i)">{{history.id}}</button></th>
+            <!-- <th><button (click)="selectedservice(i)">{{history.id}}</button></th> -->
+            <td>{{history.id}}</td>
             <td>{{history.service}}</td>
-            <td>{{history.worker}}</td>
-            <td>{{history.score}}</td>
+            <td>{{history.company}}</td>
+            <td>{{history.state}}</td>
            
             
           </tr>

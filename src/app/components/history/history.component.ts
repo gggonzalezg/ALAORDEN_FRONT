@@ -49,7 +49,7 @@ export class HistoryComponent implements OnInit {
     ngOnInit() { 
      
   
-    this.http.gethistory(localStorage.getItem('email')) // Enviar los parámetros de búsqueda al servicio
+    this.http.gethistory(sessionStorage.getItem('userId')) // Enviar los parámetros de búsqueda al servicio
     .subscribe(data =>{
       this.histories = data;
     });

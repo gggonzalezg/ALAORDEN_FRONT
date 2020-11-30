@@ -62,9 +62,9 @@ export class MainServiceService {
     //Obtener información del usuario en sesión actualmente
     return this.http.get<register>(`${this.Url}/ `,{params: new HttpParams().set('email',email)});
   }
-  gethistory(email: any){
+  gethistory(userId : string){
     //Obtener el historial de servicios del usuario en sesión
-    return this.http.post<history[]>(`${this.Url}/ `, email); 
+    return this.http.get<history[]>(`${this.Url}/${userId}/list`); 
   }
   /*getservicehistorycard(id: any){
     //Obtener el historial de servicios del usuario en sesión

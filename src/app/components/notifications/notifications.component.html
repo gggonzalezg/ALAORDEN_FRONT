@@ -20,6 +20,7 @@
           <tr *ngFor="let contract of contracts; let i=index">
             <th><button (click)="selectedservice(contract)" *ngIf="isSeller">Verificar</button></th>
             <th><p>{{contract.notificationMessage}}</p></th>
+            <th><p>{{contract.createdAt | date: 'dd/MM/yyyy'}}</p></th>
           </tr>
            
         </tbody>
