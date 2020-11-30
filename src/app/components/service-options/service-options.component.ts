@@ -99,10 +99,12 @@ export class ServiceOptionsComponent implements OnInit {
 
   ngOnInit() {
     let searchobj = new search(); //Armar el objeto de búsqueda para mandarlo al backend
+
     searchobj.type = Number(localStorage.getItem('searchservice'));
     searchobj.date = localStorage.getItem('searchtime');
     searchobj.city = Number(localStorage.getItem('searchlocation'));
     searchobj.desc = localStorage.getItem('searchdesc');
+    console.log('otra pag --> ' + JSON.stringify(searchobj))
 
     this.http.getserviceoptions(searchobj) // Enviar los parámetros de búsqueda al servicio
       .subscribe(data => {

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 import {search} from 'src/app/Model/search.model';
@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
     ciudades: any = CIUDADES;
     selectedService: Servicio;
     servicios: any = SERVICIOS;
-    date = new Date();
 
     constructor(private router: Router, private eventEmitterService: EventEmitterService, private toastr: ToastrService) {
         this.createCompany = sessionStorage.getItem('role') == '1';
@@ -41,12 +40,12 @@ export class HomeComponent implements OnInit {
         }
     }
 
-
     toggleSidebar() { // Abrir o cerrar el manú lateral
         this.opened = !this.opened;
     }
 
     onSubmit(form: NgForm) {
+        console.log(form.value);
         if (form.value.service != '' && form.value.date != '' && form.value.place != '' && form.value.desc != '') {
             const searchobj = new search();
             searchobj.type = form.value.service;
@@ -56,9 +55,9 @@ export class HomeComponent implements OnInit {
 
             console.log(searchobj); // Se obtienen los datos de la búsqueda
 
-            localStorage.setItem('searchservice', form.value.service);
+            localStorage.setItem('searchservice', form.value.serviceSelection);
             localStorage.setItem('searchtime', form.value.date);
-            localStorage.setItem('searchlocation', form.value.place);
+            localStorage.setItem('searchlocation', form.value.ciudadSelection);
             localStorage.setItem('searchdesc', form.value.desc);
 
             this.router.navigate(['/serviceoptions']);

@@ -21,24 +21,24 @@
                     <label class="input is-rounded" for="serviceSelection">¿Qué servicio necesitas? </label>
                     <select  id="serviceSelection" name="serviceSelection" ngModel="{{selectedService}}">
 
-                        <option *ngFor="let servicio of servicios"> {{servicio.name}} </option>
+                        <option *ngFor="let servicio of servicios" value="{{servicio.id}}"> {{servicio.name}} </option>
                     </select>
                     <br>
                     <br>
-
-                    <label class="input is-rounded" for="selectDate">¿Cuándo podemos visitarte?</label>
+                    <input name="date" ngModel>
+                    <!--<label class="input is-rounded" for="selectDate">¿Cuándo podemos visitarte?</label>
                     <mat-form-field id="selectDate">
                         <input matInput type="text" [matDatepicker]="picker" placeholder="Escoge una fecha"
                                style="background-color: #ffffff">
                         <mat-datepicker-toggle matSuffix [for]="picker" style="background-color: #ffffff">
                         </mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                    </mat-form-field>
+                        <mat-datepicker #picker name="date" ngModel></mat-datepicker>
+                    </mat-form-field>-->
                     <br>
                     <br>
                     <label class="input is-rounded" for="ciudadSelection">Seleccione la ciudad.</label>
                     <select id="ciudadSelection" name="ciudadSelection" ngModel="{{selectedCiudad}}">
-                        <option *ngFor="let ciudad of ciudades">
+                        <option *ngFor="let ciudad of ciudades" value="{{ciudad.id}}">
                             {{ciudad.name}}
                         </option>
                     </select>

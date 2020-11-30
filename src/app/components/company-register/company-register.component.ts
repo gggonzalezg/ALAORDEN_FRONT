@@ -46,8 +46,8 @@ export class CompanyRegisterComponent implements OnInit {
       const companyobj = new company();
       companyobj.name = form.value.cname;
       companyobj.address = form.value.caddress;
-      companyobj.country = Number(form.value.ccountry);
-      companyobj.city = Number(form.value.ccity);
+      companyobj.country = form.value.paisSelection;
+      companyobj.city = form.value.ciudadSelection;
 
       if (this.datarray.length > 0) {
         const user = sessionStorage.getItem('userId');
