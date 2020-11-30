@@ -19,13 +19,19 @@
             <main>
                 <form style="width: 100%;" class="myform" #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
                     <label class="input is-rounded" for="serviceSelection">¿Qué servicio necesitas? </label>
-                    <select  id="serviceSelection" name="serviceSelection" ngModel="{{selectedService}}">
+                    <div>
+                        <select  id="serviceSelection" name="serviceSelection" ngModel="{{selectedService}}">
+                            <option *ngFor="let servicio of servicios" value="{{servicio.id}}"> {{servicio.name}} </option>
+                        </select>
+                    </div>
 
-                        <option *ngFor="let servicio of servicios" value="{{servicio.id}}"> {{servicio.name}} </option>
-                    </select>
                     <br>
                     <br>
-                    <input name="date" ngModel>
+                    <div>
+                        <label class="input is-rounded" for="serviceSelection">¿Para que día? </label>
+                        <input name="date" class="dateInput" ngModel>
+                    </div>
+                    
                     <!--<label class="input is-rounded" for="selectDate">¿Cuándo podemos visitarte?</label>
                     <mat-form-field id="selectDate">
                         <input matInput type="text" [matDatepicker]="picker" placeholder="Escoge una fecha"

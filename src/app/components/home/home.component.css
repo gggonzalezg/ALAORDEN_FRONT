@@ -51,6 +51,7 @@ main {
   align-content: center;
   display: grid;
   margin: 50px;
+  margin-top: 0vh !important;
   width: 92%;
   grid-gap: 1rem;	
   grid-template-columns: [y0] 30% [y1] 40% [y2] 30% [y3];
@@ -60,6 +61,16 @@ main {
 .myform{
   grid-column: y1 / y2;
   grid-row: x0 / x1;
+}
+
+select{
+  width: 100%;
+  margin-top: 1vh;
+}
+
+.dateInput{
+  width: 100%;
+  margin-top: 1vh;
 }
 
 .search{
